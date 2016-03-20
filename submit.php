@@ -1,6 +1,5 @@
 <?php
-
-echo("hello world");
+require 'sanitize.php';
 
 $username="oblivia";
 $password="albatross-chains";
@@ -12,17 +11,17 @@ if (mysqli_connect_errno()){
 }
 
 
-$instructor = $_POST['instructor'];
-$course = $_POST['course'];
-$year = $_POST['year'];
-$term = $_POST['term'];
-$section = $_POST['section'];
-$assignment = $_POST['assignment'];
-$id = $_POST['id'];
-$firstname = $_POST['firstname'];
-$lastname = $_POST['lastname'];
-$email = $_POST['email'];
-$file_upload = $_POST['file_upload'];
+$instructor = sanitize($link, $_POST['instructor']);
+$course = sanitize($link, $_POST['course']);
+$year = sanitize($link, $_POST['year']);
+$term = sanitize($link, $_POST['term']);
+$section = sanitize($link, $_POST['section']);
+$assignment = sanitize($link, $_POST['assignment']);
+$id = sanitize($link, $_POST['id']);
+$firstname = sanitize($link, $_POST['firstname']);
+$lastname = sanitize($link, $_POST['lastname']);
+$email = sanitize($link, $_POST['email']);
+$file_upload = sanitize($link, $_POST['file_upload']);
 
 $create="CREATE TABLE IF NOT EXISTS submissions (
 id char(9) NOT NULL,
